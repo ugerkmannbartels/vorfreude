@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VORFREUDE – Gestalte deine Zukunft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+```
+:root {
+  --green-50: #F0F7F4;
+  --green-100: #D6EDE2;
+  --green-200: #A8D8BC;
+  --green-300: #7AC4A0;
+  --green-400: #52A87E;
+  --green-500: #3D8B66;
+  --green-600: #2E6B4E;
+  --green-700: #1F4D38;
+  --warm-400: #F5A056;
+  --warm-500: #E08840;
+  --neutral-50: #FAFAF8;
+  --neutral-100: #F0EEE9;
+  --neutral-200: #E0DDD6;
+  --neutral-300: #C8C4BA;
+  --neutral-400: #A09B8E;
+  --neutral-500: #787268;
+  --neutral-600: #524E44;
+  --neutral-700: #2C2A24;
+  --rose-500: #C8607A;
+  --sky-500: #4080B8;
+  --sun-500: #E0B840;
+  --calm-500: #7068B8;
+  --font-display: 'DM Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--neutral-50);
+  color: var(--neutral-700);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(250,250,248,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--neutral-200);
+}
+.nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+.nav-logo-mark { font-size: 1.4rem; }
+.nav-wordmark { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; }
+.nav-wordmark span { color: var(--green-500); }
+.nav-cta {
+  font-family: var(--font-body); font-size: 0.875rem; font-weight: 600;
+  padding: 0.5rem 1.25rem; background: var(--green-500); color: #fff;
+  border: none; border-radius: 0.65rem; cursor: pointer;
+  text-decoration: none; display: inline-block;
+  transition: background 0.2s, transform 0.15s;
+}
+.nav-cta:hover { background: var(--green-600); transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 6rem 2rem 4rem;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 80% 60% at 70% 40%, #D6EDE2 0%, transparent 65%),
+              radial-gradient(ellipse 50% 40% at 20% 80%, #FFF5D6 0%, transparent 60%),
+              var(--neutral-50);
+}
+.hero-content {
+  position: relative; z-index: 1;
+  max-width: 1100px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.3rem 0.85rem; background: var(--green-100);
+  color: var(--green-600); border-radius: 9999px;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em;
+  text-transform: uppercase; margin-bottom: 1.25rem;
+}
+.hero h1 {
+  font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--neutral-700); margin-bottom: 1.25rem;
+}
+.hero h1 em { font-style: italic; color: var(--green-500); }
+.hero-sub {
+  font-size: 1.0625rem; color: var(--neutral-500); line-height: 1.7;
+  margin-bottom: 2.25rem; max-width: 440px;
+}
+.hero-form {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+}
+.hero-form input {
+  flex: 1 1 240px; font-family: var(--font-body); font-size: 0.9375rem;
+  padding: 0.75rem 1rem; border: 1.5px solid var(--neutral-200);
+  border-radius: 0.75rem; background: #fff; color: var(--neutral-700);
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.hero-form input:focus { border-color: var(--green-400); box-shadow: 0 0 0 3px #A8D8BC44; }
+.hero-form button {
+  font-family: var(--font-body); font-size: 0.9375rem; font-weight: 600;
+  padding: 0.75rem 1.5rem; background: var(--green-500); color: #fff;
+  border: none; border-radius: 0.75rem; cursor: pointer;
+  transition: background 0.2s, transform 0.15s; white-space: nowrap;
+}
+.hero-form button:hover { background: var(--green-600); transform: translateY(-1px); }
+.hero-form-note { font-size: 0.75rem; color: var(--neutral-400); margin-top: 0.6rem; width: 100%; }
+.hero-trust { display: flex; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--neutral-500); }
+.trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-400); }
+
+/* ── PHONE MOCKUP ── */
+.phone-wrap { position: relative; display: flex; justify-content: center; }
+.phone-float {
+  width: 280px;
+  animation: float 5s ease-in-out infinite;
+}
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+.phone-shell {
+  width: 280px; background: #fff;
+  border-radius: 2.5rem; border: 2px solid var(--neutral-200);
+  box-shadow: 0 32px 80px rgba(44,42,36,0.14), 0 8px 20px rgba(44,42,36,0.06);
+  overflow: hidden; padding: 1.25rem;
+}
+.phone-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+.phone-logo { font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
+.phone-logo span { color: var(--green-500); }
+.phone-sub { font-size: 0.6rem; color: var(--neutral-400); font-family: var(--font-body); }
+.phone-filters { display: flex; gap: 0.35rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.pf {
+  font-size: 0.55rem; padding: 0.2rem 0.55rem; border-radius: 9999px;
+  font-family: var(--font-body); font-weight: 600;
+}
+.pf-active { background: var(--green-500); color: #fff; }
+.pf-g { background: var(--green-100); color: var(--green-600); }
+.pf-r { background: #F9E0E6; color: var(--rose-500); }
+.pf-b { background: #D6E8F5; color: var(--sky-500); }
+.phone-timeline { display: flex; flex-direction: column; gap: 0.6rem; }
+.pt-row { display: flex; gap: 0.5rem; align-items: stretch; }
+.pt-line-wrap { display: flex; flex-direction: column; align-items: center; gap: 0; width: 12px; }
+.pt-dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid; flex-shrink: 0; margin-top: 0.6rem; }
+.pt-line { flex: 1; width: 2px; background: var(--neutral-200); }
+.pt-card {
+  flex: 1; background: #fff; border-radius: 0.75rem;
+  border: 1.5px solid var(--neutral-200); padding: 0.6rem 0.7rem;
+  box-shadow: 0 2px 8px rgba(44,42,36,0.05);
+}
+.pt-card-title { font-family: var(--font-display); font-size: 0.7rem; font-weight: 600; color: var(--neutral-700); }
+.pt-card-date { font-size: 0.55rem; color: var(--green-500); font-weight: 600; margin: 0.1rem 0 0.35rem; }
+.pt-card-footer { display: flex; align-items: center; justify-content: space-between; }
+.pt-stars { font-size: 0.55rem; color: var(--sun-500); letter-spacing: -1px; }
+.pt-tag { font-size: 0.5rem; padding: 0.15rem 0.4rem; border-radius: 9999px; font-weight: 600; }
+
+/* ── CONCEPT ── */
+.section { padding: 5rem 2rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  display: inline-block; font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--green-500); margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: var(--font-display); font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700; line-height: 1.2; letter-spacing: -0.01em;
+  margin-bottom: 1rem; color: var(--neutral-700);
+}
+.section-body { font-size: 1.0625rem; color: var(--neutral-500); max-width: 560px; line-height: 1.75; }
+
+.how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
+.how-card {
+  background: #fff; border-radius: 1.25rem;
+  border: 1px solid var(--neutral-200); padding: 1.75rem;
+  position: relative; overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.how-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(44,42,36,0.08); }
+.how-card-num {
+  font-family: var(--font-display); font-size: 3.5rem; font-weight: 700;
+  color: var(--green-100); position: absolute; top: 0.5rem; right: 1rem;
+  line-height: 1; pointer-events: none; user-select: none;
+}
+.how-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+.how-card h3 {
+  font-family: var(--font-display); font-size: 1.125rem; font-weight: 600;
+  margin-bottom: 0.4rem; color: var(--neutral-700);
+}
+.how-card p { font-size: 0.875rem; color: var(--neutral-500); line-height: 1.65; }
+
+/* ── CATEGORIES ── */
+.cats-section { background: var(--green-50); }
+.cats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-top: 2.5rem; }
+.cat-pill {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: #fff; border-radius: 1rem; padding: 1rem 1.1rem;
+  border: 1px solid var(--neutral-200);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.cat-pill:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(44,42,36,0.07); }
+.cat-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.cat-pill-name { font-size: 0.875rem; font-weight: 600; color: var(--neutral-600); }
+.cat-pill-desc { font-size: 0.72rem; color: var(--neutral-400); margin-top: 0.1rem; }
+
+/* ── KARMA ── */
+.karma-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 0; }
+.karma-text { }
+.karma-vis {
+  background: #fff; border-radius: 1.5rem; padding: 2rem;
+  border: 1px solid var(--neutral-200);
+  box-shadow: 0 4px 24px rgba(44,42,36,0.06);
+}
+.karma-chart-title { font-family: var(--font-display); font-size: 0.875rem; font-weight: 600; color: var(--neutral-600); margin-bottom: 1rem; }
+.karma-bars { display: flex; flex-direction: column; gap: 0.75rem; }
+.kb-row { display: flex; align-items: center; gap: 0.75rem; }
+.kb-label { font-size: 0.75rem; color: var(--neutral-500); width: 90px; flex-shrink: 0; text-align: right; }
+.kb-track { flex: 1; height: 8px; background: var(--neutral-100); border-radius: 9999px; overflow: hidden; }
+.kb-fill { height: 100%; border-radius: 9999px; transition: width 1s ease; }
+.kb-val { font-size: 0.75rem; font-weight: 600; width: 24px; flex-shrink: 0; }
+.karma-score-big { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--neutral-200); display: flex; align-items: baseline; gap: 0.4rem; }
+.karma-score-num { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--green-500); }
+.karma-score-label { font-size: 0.875rem; color: var(--neutral-400); }
+
+/* ── CTA SECTION ── */
+.cta-section {
+  background: linear-gradient(135deg, var(--green-700) 0%, var(--green-600) 60%, var(--green-500) 100%);
+  padding: 5rem 2rem; text-align: center; color: #fff;
+}
+.cta-section .section-label { color: var(--green-200); }
+.cta-section .section-title { color: #fff; margin: 0 auto 1rem; }
+.cta-section .section-body { color: rgba(255,255,255,0.75); margin: 0 auto 2.5rem; }
+.cta-form {
+  display: flex; gap: 0.5rem; justify-content: center;
+  flex-wrap: wrap; max-width: 480px; margin: 0 auto;
+}
+.cta-form input {
+  flex: 1 1 240px; font-family: var(--font-body); font-size: 0.9375rem;
+  padding: 0.8rem 1rem; border: 1.5px solid rgba(255,255,255,0.25);
+  border-radius: 0.75rem; background: rgba(255,255,255,0.15);
+  color: #fff; outline: none; transition: border-color 0.2s, background 0.2s;
+}
+.cta-form input::placeholder { color: rgba(255,255,255,0.5); }
+.cta-form input:focus { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.2); }
+.cta-form button {
+  font-family: var(--font-body); font-size: 0.9375rem; font-weight: 600;
+  padding: 0.8rem 1.5rem; background: #fff; color: var(--green-600);
+  border: none; border-radius: 0.75rem; cursor: pointer;
+  transition: background 0.2s, transform 0.15s; white-space: nowrap;
+}
+.cta-form button:hover { background: var(--green-50); transform: translateY(-1px); }
+.cta-note { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.75rem; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--neutral-200); padding: 2rem;
+  text-align: center; font-size: 0.8125rem; color: var(--neutral-400);
+}
+footer a { color: var(--neutral-400); text-decoration: underline; }
+
+/* ── SUCCESS STATE ── */
+.success-msg {
+  display: none; align-items: center; gap: 0.5rem;
+  padding: 0.75rem 1.25rem; background: var(--green-100); color: var(--green-700);
+  border-radius: 0.75rem; font-size: 0.875rem; font-weight: 600;
+  border: 1px solid var(--green-200);
+}
+.success-msg.visible { display: flex; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.7s ease both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.35s; }
+.delay-4 { animation-delay: 0.5s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero-content { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
+  .hero-sub { max-width: 100%; }
+  .hero-form { justify-content: center; }
+  .hero-trust { justify-content: center; }
+  .phone-wrap { order: -1; }
+  .karma-layout { grid-template-columns: 1fr; }
+  nav { padding: 0.75rem 1.25rem; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+    <div class="nav-logo">
+      <span class="nav-logo-mark">⭐</span>
+      <span class="nav-wordmark">VOR<span>FREUDE</span></span>
+    </div>
+    <a href="#register" class="nav-cta">Frühzugang sichern</a>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-tag fade-up"><span>🌱</span> Bald verfügbar</div>
+        <h1 class="fade-up delay-1">Gestalte deine Zukunft – <em>jetzt.</em></h1>
+        <p class="hero-sub fade-up delay-2">VORFREUDE hilft dir, bewusst Ereignisse in deiner Zukunft zu planen, die zu deinen Werten passen. Damit du dich jeden Tag auf etwas freuen kannst – und deinen Karma-Index im Blick behältst.</p>
+        <div class="fade-up delay-3">
+          <div class="hero-form" id="hero-form-el">
+            <input type="email" id="hero-email" placeholder="deine@email.de" autocomplete="email" />
+            <button onclick="handleRegister('hero')">Frühzugang sichern →</button>
+            <span class="hero-form-note">Kostenlos. Kein Spam. Jederzeit abbestellbar.</span>
+          </div>
+          <div class="success-msg" id="hero-success">✓ Du bist auf der Liste – wir melden uns!</div>
+        </div>
+        <div class="hero-trust fade-up delay-4">
+          <div class="trust-item"><div class="trust-dot"></div>Kostenlose Beta</div>
+          <div class="trust-item"><div class="trust-dot" style="background:var(--warm-400)"></div>iOS & Android</div>
+          <div class="trust-item"><div class="trust-dot" style="background:var(--sky-500)"></div>DSGVO-konform</div>
+        </div>
+      </div>
+      <div class="phone-wrap fade-up delay-2">
+        <div class="phone-float">
+          <div class="phone-shell">
+            <div class="phone-header">
+              <div>
+                <div class="phone-logo">VOR<span>FREUDE</span></div>
+                <div class="phone-sub">Deine Timeline</div>
+              </div>
+              <div style="font-size:1.1rem">⚙️</div>
+            </div>
+            <div class="phone-filters">
+              <span class="pf pf-active">Alle</span>
+              <span class="pf pf-g">Gesundheit</span>
+              <span class="pf pf-r">Beziehungen</span>
+              <span class="pf pf-b">Kompetenz</span>
+            </div>
+            <div class="phone-timeline">
+              <div class="pt-row">
+                <div class="pt-line-wrap">
+                  <div class="pt-dot" style="border-color:#C8607A; background:#fff;"></div>
+                  <div class="pt-line"></div>
+                </div>
+                <div class="pt-card" style="border-color:#F2BFC9;">
+                  <div class="pt-card-title">Abendessen mit Lisa & Tom</div>
+                  <div class="pt-card-date">28. MÄRZ 2026</div>
+                  <div class="pt-card-footer">
+                    <span class="pt-stars">★★★★☆</span>
+                    <span class="pt-tag" style="background:#F9E0E6;color:#C8607A;">Beziehungen</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-row">
+                <div class="pt-line-wrap">
+                  <div class="pt-dot" style="border-color:#3D8B66; background:#fff;"></div>
+                  <div class="pt-line"></div>
+                </div>
+                <div class="pt-card" style="border-color:#A8D8BC;">
+                  <div class="pt-card-title">Zahnarzt Kontrolle</div>
+                  <div class="pt-card-date">25. MÄRZ 2026</div>
+                  <div class="pt-card-footer">
+                    <span class="pt-stars">★★☆☆☆</span>
+                    <span class="pt-tag" style="background:#D6EDE2;color:#3D8B66;">Gesundheit</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-row">
+                <div class="pt-line-wrap">
+                  <div class="pt-dot" style="border-color:#A09B8E; background:#fff;"></div>
+                </div>
+                <div class="pt-card" style="opacity:0.65;">
+                  <div class="pt-card-title">Team Workshop Q1</div>
+                  <div class="pt-card-date">10. MÄRZ 2026</div>
+                  <div class="pt-card-footer">
+                    <span class="pt-stars">★★★★☆</span>
+                    <span class="pt-tag" style="background:#D6E8F5;color:#4080B8;">Kompetenz</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label">So funktioniert es</div>
+      <h2 class="section-title">Drei Schritte zu mehr<br>Lebensfreude</h2>
+      <p class="section-body">VORFREUDE ist kein Kalender. Es ist ein Werkzeug für bewusstes Erleben – von der Planung bis zur Reflexion.</p>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-card-num">01</div>
+          <div class="how-icon">🎯</div>
+          <h3>Highlights planen</h3>
+          <p>Trage Ereignisse ein, die zu deinen Werten passen – quer durch alle sieben Lebensbereiche. Kleine und große Dinge.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-card-num">02</div>
+          <div class="how-icon">⭐</div>
+          <h3>Vorfreude erleben</h3>
+          <p>Deine Timeline zeigt dir, worauf du dich freuen kannst. Die Vorfreude selbst ist ein Glücksmoment – täglich sichtbar.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-card-num">03</div>
+          <div class="how-icon">📈</div>
+          <h3>Karma-Index steigern</h3>
+          <p>Je mehr hochwertige Highlights du planst, desto besser dein Score. Der Index spiegelt, wie bewusst du deine Zukunft gestaltest.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-card-num">04</div>
+          <div class="how-icon">🔍</div>
+          <h3>Rückschau & Lernen</h3>
+          <p>Nach dem Ereignis bewertest du es. Wie war es wirklich? Was willst du öfter? Deine Erkenntnisse verbessern zukünftige Planung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+
+  <section class="section cats-section">
+    <div class="section-inner">
+      <div class="section-label">Lebensbereiche</div>
+      <h2 class="section-title">Sieben Dimensionen<br>eines erfüllten Lebens</h2>
+      <p class="section-body">VORFREUDE deckt alle wesentlichen Lebensbereiche ab – damit keine wichtige Dimension in der Tristesse des Alltags untergeht.</p>
+      <div class="cats-grid">
+        <div class="cat-pill">
+          <div class="cat-dot" style="background:#3D8B66;"></div>
+          <div><div class="cat-pill-name">Gesundheit</div><div class="cat-pill-desc">Körper & mentales Wohlbefinden</div></div>
+        </div>
+        <div class="cat-pill">
+          <div class="cat-dot" style="background:#C8607A;"></div>
+          <div><div class="cat-pill-name">Beziehungen</div><div class="cat-pill-desc">Familie, Freunde & soziale Kontakte</div></div>
+        </div>
+        <div class="cat-pill">
+          <div class="cat-dot" style="background:#4080B8;"></div>
+          <div><div class="cat-pill-name">Kompetenz</div><div class="cat-pill-desc">Berufliches Wachstum & Lernen</div></div>
+        </div>
+        <div class="cat-pill">
+          <div class="cat-dot" style="background:#E0B840;"></div>
+          <div><div class="cat-pill-name">Finanzen</div><div class="cat-pill-desc">Vermögensaufbau & Sicherheit</div></div>
+        </div>
+        <div class="cat-pill">
+          <div class="cat-dot" style="background:#7068B8;"></div>
+          <div><div class="cat-pill-name">Persönlichkeit</div><div class="cat-pill-desc">Innere Entwicklung & Werte</div></div>
+        </div>
+        <div class="cat-pill">
+          <div class="cat-dot" style="background:#E08840;"></div>
+          <div><div class="cat-pill-name">Sinn & Beitrag</div><div class="cat-pill-desc">Zweck & gesellschaftliche Teilhabe</div></div>
+        </div>
+        <div class="cat-pill">
+          <div class="cat-dot" style="background:#7AC4A0;"></div>
+          <div><div class="cat-pill-name">Erholung</div><div class="cat-pill-desc">Regeneration & Kreativität</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KARMA INDEX -->
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="karma-layout">
+        <div class="karma-text">
+          <div class="section-label">Karma-Index</div>
+          <h2 class="section-title">Dein Zukunfts-Score – immer im Blick</h2>
+          <p class="section-body" style="margin-bottom:1.5rem;">Der Karma-Index berechnet sich aus der Qualität und Häufigkeit deiner geplanten Highlights. Ein hoher Score bedeutet: Du gestaltest deine Zukunft aktiv und ausgewogen – über alle Lebensbereiche hinweg.</p>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem;">
+            <li style="display:flex;align-items:flex-start;gap:0.6rem;font-size:0.875rem;color:var(--neutral-500);">
+              <span style="color:var(--green-500);font-weight:700;margin-top:0.05rem;">✓</span>
+              Trends über die letzten Monate sichtbar
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:0.6rem;font-size:0.875rem;color:var(--neutral-500);">
+              <span style="color:var(--green-500);font-weight:700;margin-top:0.05rem;">✓</span>
+              Aufschlüsselung nach Lebensbereichen
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:0.6rem;font-size:0.875rem;color:var(--neutral-500);">
+              <span style="color:var(--green-500);font-weight:700;margin-top:0.05rem;">✓</span>
+              Warnung wenn ein Bereich vernachlässigt wird
+            </li>
+          </ul>
+        </div>
+        <div class="karma-vis">
+          <div class="karma-chart-title">Karma-Index pro Lebensbereich</div>
+          <div class="karma-bars">
+            <div class="kb-row">
+              <div class="kb-label">Beziehungen</div>
+              <div class="kb-track"><div class="kb-fill" style="width:80%;background:#C8607A;"></div></div>
+              <div class="kb-val" style="color:#C8607A;">4.0</div>
+            </div>
+            <div class="kb-row">
+              <div class="kb-label">Gesundheit</div>
+              <div class="kb-track"><div class="kb-fill" style="width:40%;background:#3D8B66;"></div></div>
+              <div class="kb-val" style="color:#3D8B66;">2.0</div>
+            </div>
+            <div class="kb-row">
+              <div class="kb-label">Kompetenz</div>
+              <div class="kb-track"><div class="kb-fill" style="width:72%;background:#4080B8;"></div></div>
+              <div class="kb-val" style="color:#4080B8;">3.6</div>
+            </div>
+            <div class="kb-row">
+              <div class="kb-label">Erholung</div>
+              <div class="kb-track"><div class="kb-fill" style="width:96%;background:#7AC4A0;"></div></div>
+              <div class="kb-val" style="color:#3D8B66;">4.8</div>
+            </div>
+            <div class="kb-row">
+              <div class="kb-label">Finanzen</div>
+              <div class="kb-track"><div class="kb-fill" style="width:20%;background:#E0B840;"></div></div>
+              <div class="kb-val" style="color:#E0B840;">1.0</div>
+            </div>
+          </div>
+          <div class="karma-score-big">
+            <div class="karma-score-num">3.8</div>
+            <div class="karma-score-label">Ø Karma-Index<br><span style="font-size:0.7rem;color:var(--green-400);">↑ Trend: +0.4 ggü. Vormonat</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+
+  <section class="cta-section" id="register">
+    <div class="section-label">Frühzugang</div>
+    <h2 class="section-title" style="max-width:520px;">Sei dabei, wenn VORFREUDE startet.</h2>
+    <p class="section-body">Trag dich jetzt ein und erhalte exklusiven Beta-Zugang. Keine Kosten, keine Verpflichtungen.</p>
+    <div class="cta-form" id="cta-form-el">
+      <input type="email" id="cta-email" placeholder="deine@email.de" autocomplete="email" />
+      <button onclick="handleRegister('cta')">Jetzt eintragen →</button>
+    </div>
+    <div class="success-msg" id="cta-success" style="justify-content:center;margin-top:1rem;background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.25);">✓ Danke! Wir melden uns sobald die Beta startet.</div>
+    <p class="cta-note">Datenschutz gemäß DSGVO. Keine Weitergabe an Dritte. Abmeldung jederzeit möglich.</p>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div style="margin-bottom:0.4rem;">
+      <span style="font-family:var(--font-display);font-weight:700;">VOR<span style="color:var(--green-500);">FREUDE</span></span>
+      &nbsp;·&nbsp; Gestalte deine Zukunft
+    </div>
+    <div>
+      <a href="#" onclick="alert('Impressum folgt')">Impressum</a> &nbsp;·&nbsp;
+      <a href="#" onclick="alert('Datenschutzerklärung folgt')">Datenschutz</a>
+    </div>
+    <div style="margin-top:0.5rem;font-size:0.7rem;">© 2026 VORFREUDE. Alle Rechte vorbehalten.</div>
+  </footer>
+
+  <script>
+    // Simple local registration handler
+    // Replace fetch() URL with your backend / Formspree / Mailchimp endpoint
+    async function handleRegister(source) {
+      const emailInput = document.getElementById(source === 'hero' ? 'hero-email' : 'cta-email');
+      const formEl = document.getElementById(source === 'hero' ? 'hero-form-el' : 'cta-form-el');
+      const successEl = document.getElementById(source === 'hero' ? 'hero-success' : 'cta-success');
+      const email = emailInput.value.trim();
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        emailInput.style.borderColor = '#C8607A';
+        emailInput.focus();
+        setTimeout(() => { emailInput.style.borderColor = ''; }, 1500);
+        return;
+      }
+
+      // ─── INTEGRATION POINT ───────────────────────────────────────────────
+      // Option A: Formspree – ersetze die URL mit deiner Formspree-Form-ID
+      // const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      //   body: JSON.stringify({ email, source })
+      // });
+      //
+      // Option B: Mailchimp via Serverless Function / n8n Webhook
+      // const res = await fetch('https://YOUR_WEBHOOK_URL', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ email, source, ts: new Date().toISOString() })
+      // });
+      // ─────────────────────────────────────────────────────────────────────
+
+      // Demo: simulierter Erfolg
+      console.log('[VORFREUDE] Registrierung:', email, source);
+      formEl.style.display = 'none';
+      successEl.classList.add('visible');
+    }
+
+    // Enter key support
+    document.getElementById('hero-email').addEventListener('keydown', e => { if (e.key === 'Enter') handleRegister('hero'); });
+    document.getElementById('cta-email').addEventListener('keydown', e => { if (e.key === 'Enter') handleRegister('cta'); });
+  </script>
+
+</body>
+</html>
