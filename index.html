@@ -272,6 +272,30 @@ footer {
 }
 footer a { color: var(--neutral-400); text-decoration: underline; }
 
+/* ── IMPRESSUM MODAL ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: rgba(44,42,36,0.6); align-items: center; justify-content: center;
+  padding: 1rem;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--neutral-50); border-radius: 1.25rem;
+  padding: 2rem 2rem 1.75rem; max-width: 560px; width: 100%;
+  max-height: 85vh; overflow-y: auto; position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: none; border: none; font-size: 1.25rem; cursor: pointer;
+  color: var(--neutral-400); line-height: 1;
+}
+.modal-close:hover { color: var(--neutral-700); }
+.modal-box h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--neutral-700); }
+.modal-box h3 { font-size: 0.8125rem; font-weight: 700; margin: 1rem 0 0.25rem; color: var(--neutral-600); text-transform: uppercase; letter-spacing: 0.05em; }
+.modal-box p { font-size: 0.875rem; color: var(--neutral-600); line-height: 1.6; }
+.modal-box a { color: var(--green-500); }
+
 /* ── SUCCESS STATE ── */
 .success-msg {
   display: none; align-items: center; gap: 0.5rem;
@@ -558,6 +582,38 @@ footer a { color: var(--neutral-400); text-decoration: underline; }
     <p class="cta-note">Datenschutz gemäß DSGVO. Keine Weitergabe an Dritte. Abmeldung jederzeit möglich.</p>
   </section>
 
+  <!-- IMPRESSUM MODAL -->
+  <div class="modal-overlay" id="impressum-modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="document.getElementById('impressum-modal').classList.remove('open')" aria-label="Schließen">×</button>
+      <h2>Impressum</h2>
+
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <p>enpit GmbH &amp; Co. KG<br>Marienplatz 11 a<br>33098 Paderborn</p>
+
+      <h3>Vertreten durch</h3>
+      <p>Ulrich Gerkmann-Bartels und Andreas Koop</p>
+
+      <h3>Handelsregister</h3>
+      <p>Amtsgericht Paderborn, HRA 6314<br>Persönlich haftende Gesellschafterin: enpit Verwaltungs-GmbH, HRB 12062</p>
+
+      <h3>Umsatzsteuer-ID</h3>
+      <p>DE283756446</p>
+
+      <h3>Verantwortlich für den Inhalt (§ 18 Abs. 2 MStV)</h3>
+      <p>Ulrich Gerkmann-Bartels</p>
+
+      <h3>Kontakt</h3>
+      <p>Ewelina Korbal<br>Tel.: <a href="tel:+4952512027791">+49 5251 2027791</a><br>E-Mail: <a href="mailto:info@enpit.de">info@enpit.de</a></p>
+
+      <h3>Haftungshinweis</h3>
+      <p>Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+
+      <h3>Urheberrecht</h3>
+      <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf dieser Seite unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+    </div>
+  </div>
+
   <!-- FOOTER -->
 
   <footer>
@@ -566,7 +622,7 @@ footer a { color: var(--neutral-400); text-decoration: underline; }
       &nbsp;·&nbsp; Gestalte deine Zukunft
     </div>
     <div>
-      <a href="#" onclick="alert('Impressum folgt')">Impressum</a> &nbsp;·&nbsp;
+      <a href="#" onclick="document.getElementById('impressum-modal').classList.add('open');return false;">Impressum</a> &nbsp;·&nbsp;
       <a href="#" onclick="alert('Datenschutzerklärung folgt')">Datenschutz</a>
     </div>
     <div style="margin-top:0.5rem;font-size:0.7rem;">© 2026 VORFREUDE. Alle Rechte vorbehalten.</div>
@@ -613,6 +669,14 @@ footer a { color: var(--neutral-400); text-decoration: underline; }
     // Enter key support
     document.getElementById('hero-email').addEventListener('keydown', e => { if (e.key === 'Enter') handleRegister('hero'); });
     document.getElementById('cta-email').addEventListener('keydown', e => { if (e.key === 'Enter') handleRegister('cta'); });
+
+    // Impressum modal
+    document.getElementById('impressum-modal').addEventListener('click', function(e) {
+      if (e.target === this) this.classList.remove('open');
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') document.getElementById('impressum-modal').classList.remove('open');
+    });
   </script>
 
 </body>
